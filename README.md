@@ -14,4 +14,4 @@
 
 - **run.ggsashimi.sh**: Generate ggsashimi plots.
 - **run.sqanti.filter.known.sh**: Filter known genes using SQANTI categories.
-
+- **run.intronProspector.sh**: from BAM/SAM generates a list of splicing junctions (SJs)
