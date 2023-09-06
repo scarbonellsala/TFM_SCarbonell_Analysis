@@ -1,5 +1,7 @@
 # TFM_SCarbonell_Analysis
 
+![Workflow](workflow.png)
+
 ## R-scripts:
 
 - **PCA_scaled_centered.R**: Build scaled and centred PCAs for LRonly and SRsupported data.
