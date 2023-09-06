@@ -5,6 +5,7 @@ setwd("~/Library/CloudStorage/OneDrive-CRG-CentredeRegulacioGenomica/MyMac/Docum
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
+library(ggrastr)
 
 ##Only TvsT CvsC and NvsN ROW Counts
 
@@ -52,7 +53,7 @@ for (i in 1:nrow(comparisons)) {
   
   # Create a scatter plot with regression line
   plot <- ggplot(transformed_data, aes(x = .data[[col1]], y = .data[[col2]])) +
-    geom_point() +
+    geom_point_rast() +
     geom_smooth(method = "lm", se = FALSE) +
     labs(title = paste("Regression Plot: ", col1, " vs ", col2, "\nR-squared: ", round(r_squared, 4)),
          x = col1, y = col2) +
@@ -162,7 +163,7 @@ for (i in 1:nrow(comparisons)) {
   
   # Create a scatter plot with regression line
   plot <- ggplot(transformed_data, aes(x = .data[[col1]], y = .data[[col2]])) +
-    geom_point() +
+    geom_point_rast() +
     geom_smooth(method = "lm", se = FALSE) +
     labs(title = paste("Regression Plot: ", col1, " vs ", col2, "\nR-squared: ", round(r_squared, 4)),
          x = col1, y = col2) +
@@ -252,7 +253,7 @@ for (i in 1:nrow(comparisons)) {
   
   # Create a scatter plot with regression line
   plot <- ggplot(transformed_data, aes(x = .data[[col1]], y = .data[[col2]])) +
-    geom_point() +
+    geom_point_rast() +
     geom_smooth(method = "lm", se = FALSE) +
     labs(title = paste("Regression Plot: ", col1, " vs ", col2, "\nR-squared: ", round(r_squared, 4)),
          x = col1, y = col2) +
@@ -319,7 +320,7 @@ for (i in 1:nrow(comparisons)) {
   
   # Create a scatter plot with regression line
   plot <- ggplot(transformed_data, aes(x = .data[[col1]], y = .data[[col2]])) +
-    geom_point() +
+    geom_point_rast() +
     geom_smooth(method = "lm", se = FALSE) +
     labs(title = paste("Regression Plot: ", col1, " vs ", col2, "\nR-squared: ", round(r_squared, 4)),
          x = col1, y = col2) +
@@ -402,7 +403,7 @@ for (i in 1:nrow(comparisons)) {
   
   # Create a scatter plot with regression line
   plot <- ggplot(transformed_data, aes(x = .data[[col1]], y = .data[[col2]])) +
-    geom_point() +
+    geom_point_rast() +
     geom_smooth(method = "lm", se = FALSE) +
     labs(title = paste("Regression Plot: ", col1, " vs ", col2, "\nR-squared: ", round(r_squared, 4)),
          x = col1, y = col2) +
@@ -512,7 +513,7 @@ for (i in 1:nrow(comparisons)) {
   
   # Create a scatter plot with regression line
   plot <- ggplot(transformed_data, aes(x = .data[[col1]], y = .data[[col2]])) +
-    geom_point() +
+    geom_point_rast() +
     geom_smooth(method = "lm", se = FALSE) +
     labs(title = paste("Regression Plot: ", col1, " vs ", col2, "\nR-squared: ", round(r_squared, 4)),
          x = col1, y = col2) +
@@ -601,7 +602,7 @@ for (i in 1:nrow(comparisons)) {
   
   # Create a scatter plot with regression line
   plot <- ggplot(transformed_data, aes(x = .data[[col1]], y = .data[[col2]])) +
-    geom_point() +
+    geom_point_rast() +
     geom_smooth(method = "lm", se = FALSE) +
     labs(title = paste("Regression Plot: ", col1, " vs ", col2, "\nR-squared: ", round(r_squared, 4)),
          x = col1, y = col2) +
@@ -668,7 +669,7 @@ for (i in 1:nrow(comparisons)) {
   
   # Create a scatter plot with regression line
   plot <- ggplot(transformed_data, aes(x = .data[[col1]], y = .data[[col2]])) +
-    geom_point() +
+    geom_point_rast() +
     geom_smooth(method = "lm", se = FALSE) +
     labs(title = paste("Regression Plot: ", col1, " vs ", col2, "\nR-squared: ", round(r_squared, 4)),
          x = col1, y = col2) +
