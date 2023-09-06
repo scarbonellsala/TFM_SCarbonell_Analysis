@@ -9,3 +9,7 @@
 * **PLOT_regression_plots_replicates.R** - Rscript to prepare regression plots
 
 ## Bash-scripts:
+
+* **run.ggsashimi.sh** - Bash script used to generate ggsashimi plots
+* **run.sqanti.filter.known.sh** - Bash script used to filter for known genes according to sqanti categories
+* 
