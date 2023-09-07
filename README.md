@@ -27,7 +27,7 @@ SQANTI3 was used to QC the long-read data models obtained by FLAIR.
 
 TODO: EXAMPLE script here
 
-SQANTI categories were used to filter for Known (Gencode v43 annotated Genes)
+SQANTI categories were used to filter for Known (Gencode v43 annotated Genes), running the following bash script:
 
 ```
 run.sqanti.filter.known.sh
