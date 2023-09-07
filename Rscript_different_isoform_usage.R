@@ -50,7 +50,7 @@ enrich_result <- enrichGO(gene = corrected_ensembl_genes,
                           keyType = "ENSEMBL",
                           ont = "BP")
 # png
-png("enrichment_plot_SRonly.png", width = 800, height = 600)
+png("enrichment_plot_SRsupported.png", width = 800, height = 600)
 barplot(enrich_result, showCategory = 10)
 dev.off()
 
