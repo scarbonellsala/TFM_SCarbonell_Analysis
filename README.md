@@ -1,5 +1,7 @@
 # TFM_SCarbonell_Analysis
 
+## Workflow:
+
 ![Workflow](workflow.png)
 
 ## R-scripts:
