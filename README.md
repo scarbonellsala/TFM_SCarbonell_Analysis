@@ -49,6 +49,8 @@ nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/T
 
 special modules from FLAIR were used to perform splicing events and isoform usage analysis.
 
+TODO: EXAMPLE script here
+
 
 
 ## Data visualization:
