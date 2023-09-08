@@ -45,6 +45,24 @@ nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/T
 
 ```
 
+## Data analysis:
+
+special modules from FLAIR were used to perform splicing events and isoform usage analysis.
+
+
+
+## Data visualization:
+
+Samtools was used to merge sample replicate BAM files from different compartments prior to data visualization.
+
+USCS browser and IGV were used to check splicing events and isoform usage. The exact coordinates to plot were extracted and used to run sushi function on ggsashimi
+
+```
+run.ggsashimi.sh
+```
+
+
+
 ## R-scripts:
 
 - **PCA_scaled_centered.R**: Build scaled and centred PCAs for LRonly and SRsupported data.
