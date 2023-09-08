@@ -25,7 +25,9 @@ run.intronProspector.sh
 
 SQANTI3 was used to QC the long-read data models obtained by FLAIR. 
 
-TODO: EXAMPLE script here
+```
+sqanti3.withSRsupport.sh
+```
 
 SQANTI categories were used to filter for Known (Gencode v43 annotated Genes), running the following bash script:
 
@@ -49,9 +51,13 @@ nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/T
 
 special modules from FLAIR were used to perform splicing events and isoform usage analysis.
 
-TODO: EXAMPLE script here
+```
+flairMODULE6.withSRsupport.sh
+```
 
-
+```
+flair.diff.iso.usage.KNOWN.filteredDATA.bash.sh
+```
 
 ## Data visualization:
 
@@ -75,6 +81,9 @@ run.ggsashimi.sh
 
 ## Bash-scripts:
 
-- **run.ggsashimi.sh**: Generate ggsashimi plots.
-- **run.sqanti.filter.known.sh**: Filter known genes using SQANTI categories.
 - **run.intronProspector.sh**: from BAM/SAM generates a list of splicing junctions (SJs)
+- **sqanti3.withSRsupport.sh**: Bash script to run SQANTI3 (example for short-read supported data)
+- **run.sqanti.filter.known.sh**: Filter known genes using SQANTI categories.
+- **flairMODULE6.withSRsupport.sh**: Bash script to run FLAIR diffSplice - module 6 (example for short-read supported data)
+- **flair.diff.iso.usage.KNOWN.filteredDATA.bash.sh**: Bash script to run FLAIR different isoform usage tool (example for known genes filtered data)
+- **run.ggsashimi.sh**: Generate ggsashimi plots.
