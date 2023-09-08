@@ -15,7 +15,7 @@ FLAIR v2.0 modules had been used to process long-read sequencing data in 2 diffe
 TODO: EXAMPLE script here
 
 - **Short-read splicing junctions (SJs)**:
-intronPorspector was used to generate the SJs file from short-read data, running the following bash script:
+intronProspector was used to generate the SJs file from short-read data, running the following bash script:
 
 ```
 run.intronProspector.sh
