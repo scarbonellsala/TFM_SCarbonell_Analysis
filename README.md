@@ -97,9 +97,9 @@ run.ggsashimi.sh
 
 ## Bash-scripts:
 
-- **flairMODULE123.sh**: from long-read fastq generates
-- **flairMODULE4.sh**: 
-- **run.intronProspector.sh**: from BAM/SAM generates a list of splicing junctions (SJs)
+- **flairMODULE123.sh**: Bash script to run FLAIR along, correct and quantify modules from independent long-read fastq by simultaneously processing all samples and building a unique set of transcript models.
+- **flairMODULE4.sh**: Bash script to run FLAIR quantify module which performs isoform quantifications matrix from transcript models file.
+- **run.intronProspector.sh**: From BAM/SAM generates a list of splicing junctions (SJs)
 - **sqanti3.withSRsupport.sh**: Bash script to run SQANTI3 (example for short-read supported data)
 - **run.sqanti.filter.known.sh**: Filter known genes using SQANTI categories.
 - **flairMODULE6.withSRsupport.sh**: Bash script to run FLAIR diffSplice - module 6 (example for short-read supported data)
