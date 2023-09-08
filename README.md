@@ -69,13 +69,13 @@ nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/T
     diffsplice.fishers.exact.sh
     ```
 
-### R Scripts for Analysis and Data Visualization
+### R Scripts for Analysis
 
 In addition to the tools mentioned above, R scripts were utilized for further analysis and to generate visualizations of the data. These R scripts played a crucial role in providing insights and facilitating data interpretation.
 
 Please refer to the specific R script files for detailed information on the analyses conducted and the visualizations produced.
 
-## Data Visualization
+## Splicing Data Visualization
 
 - **Long-Read Data Visualization:**
   - For long-read sequencing data, the FLAIR align module was run independently for each sample to obtain separate BAM files for data visualization.
