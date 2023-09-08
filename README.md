@@ -41,8 +41,6 @@ Short-read sequencing data was processed using the GRAPE-NF pipeline.
 To process short-read sequencing data with GRAPE-NF, use the following command:
 
 ```
-module load Java/11
-
 nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/TFM/short_reads/metadata.tsv --genome /nfs/users/rg/projects/references/Genome/H.sapiens/GRCh38/GRCh38.p13.primary_assembly.genome.fa.gz --annotation /nfs/users/rg/projects/references/Annotation/H.sapiens/gencode43/gencode.v43.primary_assembly.annotation.gtf.gz --rg-platform ILLUMINA --rg-center-name CRG -resume -c /software/rg/grape/config/rg.singularity.dsl2.config > pipeline.log
 ![image](https://github.com/scarbonellsala/TFM_SCarbonell_Analysis/assets/75372182/7b347584-4745-4702-a555-d11b9258ffcf)
 ```
