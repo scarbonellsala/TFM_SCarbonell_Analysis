@@ -34,7 +34,7 @@
     run.sqanti.filter.known.sh
     ```
 
-## To process sequencing short-read data:
+## Processing short-read data:
 
 GRAPE-NF has been used to process short-read sequencing data
 
