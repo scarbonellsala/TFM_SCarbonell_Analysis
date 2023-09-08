@@ -38,7 +38,7 @@
 
 Short-read sequencing data was processed using the GRAPE-NF pipeline.
 
-To process short-read sequencing data with GRAPE-NF, you can use the following command:
+To process short-read sequencing data with GRAPE-NF, use the following command:
 
 ```
 module load Java/11
