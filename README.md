@@ -4,46 +4,35 @@
 
 ![Workflow](workflow.png)
 
-## To process sequencing long-read data:
-- **ONT Basecall and QC**:
-Guppy v6 SUP was used to basecall the data using default parameters.
-Default parameters had been used to run Nanoplot and MultiQC.
+## Processing Long-Read Data:
 
-- **Long Read Splicing analysis**
-FLAIR v2.0 modules had been used to process long-read sequencing data in 2 different modes: LR-only and SR-supported. These program modules were run as a job in the cluster.
+- **ONT Basecall and QC:**
+  - Guppy v6 SUP was used to basecall the data with default parameters.
+  - Nanoplot and MultiQC were run using default parameters.
 
-Flair align, correct and collapse:
+- **Long-Read Splicing Analysis:**
+  - FLAIR v2.0 modules were used to process long-read sequencing data in two modes: LR-only and SR-supported.
+  - Run Flair align, correct, and collapse:
+    ```
+    flairMODULE123.sh
+    ```
+  - Run Flair quantify:
+    ```
+    flairMODULE4.sh
+    ```
 
-```
-flairMODULE123.sh
-```
+- **Short-Read Splicing Junctions (SJs):**
+  - intronProspector was used to generate SJs from short-read data using the following bash script:
+    ```
+    run.intronProspector.sh
+    ```
 
-Flair quantify:
-
-```
-flairMODULE4.sh
-```
-
-- **Short-read splicing junctions (SJs)**:
-intronProspector was used to generate the SJs file from short-read data, running the following bash script:
-
-```
-run.intronProspector.sh
-```
-  
-- **Data QC and filtering**:
-
-SQANTI3 was used to QC the long-read data models obtained by FLAIR. 
-
-```
-sqanti3.withSRsupport.sh
-```
-
-SQANTI categories were used to filter for Known (Gencode v43 annotated Genes), running the following bash script:
-
-```
-run.sqanti.filter.known.sh
-```
+- **Data QC and Filtering:**
+  - SQANTI3 was used to QC the long-read data models obtained by FLAIR.
+  - Filter for Known (Gencode v43 annotated Genes) using SQANTI categories with the following script:
+    ```
+    run.sqanti.filter.known.sh
+    ```
 
 ## To process sequencing short-read data:
 
@@ -57,52 +46,93 @@ nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/T
 
 ```
 
-## Data analysis:
+## Data Analysis
 
-special modules from FLAIR were used to perform splicing events and isoform usage analysis.
+- **Special Modules for Splicing Events and Isoform Usage:**
+  - FLAIR modules were utilized to analyze splicing events and isoform usage.
 
-```
-flairMODULE6.withSRsupport.sh
-```
+    ```
+    flairMODULE6.withSRsupport.sh
+    ```
 
-```
-flair.diff.iso.usage.KNOWN.filteredDATA.bash.sh
-```
+    ```
+    flair.diff.iso.usage.KNOWN.filteredDATA.bash.sh
+    ```
 
-## Data visualization:
+- **Fisher Test for Splicing Events:**
+  - To perform Fisher tests on splicing events:
 
-For long-read sequencing data FLAIR align module was run for each sample independently to obtain separate BAM files for data visualization.
+    ```
+    diffsplice.fishers.exact.sh
+    ```
 
-```
-flair.align.singlebams.sh
-```
+## Data Visualization
 
-While separate BAM files from short-read sequencing data were obtained directly from Grape-nf output. 
+- **Long-Read Data Visualization:**
+  - For long-read sequencing data, the FLAIR align module was run independently for each sample to obtain separate BAM files for data visualization.
 
-Samtools was used to merge sample replicate BAM files from different compartments prior to data visualization.
+    ```
+    flair.align.singlebams.sh
+    ```
 
-USCS browser and IGV were used to check splicing events and isoform usage. The exact coordinates to plot were extracted and used to run sushi function on ggsashimi
+- **Short-Read Data Visualization:**
+  - Separate BAM files from short-read sequencing data were obtained directly from Grape-nf output.
 
-```
-run.ggsashimi.sh
-```
+- **BAM File Merge:**
+  - Samtools was used to merge sample replicate BAM files from different compartments prior to data visualization.
+
+- **Splicing Events and Isoform Usage Visualization:**
+  - USCS browser and IGV were used to inspect splicing events and isoform usage. The exact coordinates for plotting were extracted and utilized to run the sushi function on ggsashimi.
+
+    ```
+    run.ggsashimi.sh
+    ```
 
 ## R-scripts:
 
-- **PCA_scaled_centered.R**: Build scaled and centred PCAs for LRonly and SRsupported data.
-- **Rscript_different_isoform_usage.R**: Perform different isoform usage analysis.
-- **Splicing_events.R**: Analyze splicing events (IR, ES, Alt3, and Alt5).
-- **Upset_plots_addingGENCODE.R**: Prepare upset plots of isoform counts and GENCODE for LRonly and SRsupported data.
-- **PLOT_regression_plots_replicates.R**: Generate regression plots for LRonly and SRsupported data.
+- **PCA_scaled_centered.R**:
+  - Purpose: Build scaled and centered PCAs for LRonly and SRsupported data.
+
+- **Rscript_different_isoform_usage.R**:
+  - Purpose: Perform different isoform usage analysis.
+
+- **Splicing_events.R**:
+  - Purpose: Analyze splicing events (IR, ES, Alt3, and Alt5).
+
+- **Upset_plots_addingGENCODE.R**:
+  - Purpose: Prepare upset plots of isoform counts and GENCODE for LRonly and SRsupported data.
+
+- **PLOT_regression_plots_replicates.R**:
+  - Purpose: Generate regression plots for LRonly and SRsupported data.
 
 ## Bash-scripts:
 
-- **flairMODULE123.sh**: Bash script to run FLAIR along, correct and quantify modules from independent long-read fastq by simultaneously processing all samples and building a unique set of transcript models.
-- **flairMODULE4.sh**: Bash script to run FLAIR quantify module which performs isoform quantifications matrix from transcript models file.
-- **run.intronProspector.sh**: From BAM/SAM generates a list of splicing junctions (SJs)
-- **sqanti3.withSRsupport.sh**: Bash script to run SQANTI3 (example for short-read supported data)
-- **run.sqanti.filter.known.sh**: Filter known genes using SQANTI categories.
-- **flairMODULE6.withSRsupport.sh**: Bash script to run FLAIR diffSplice - module 6 (example for short-read supported data)
-- **flair.diff.iso.usage.KNOWN.filteredDATA.bash.sh**: Bash script to run FLAIR different isoform usage tool (example for known genes filtered data)
-- **flair.align.singlebams.sh**: from long-read fastq generates single BAMs for each sample using FLAIR align module 1
-- **run.ggsashimi.sh**: Uses sushi function to generate ggsashimi plots.
+- **flairMODULE123.sh**:
+  - Purpose: Bash script to run FLAIR along, correct, and quantify modules from independent long-read fastq by simultaneously processing all samples and building a unique set of transcript models.
+
+- **flairMODULE4.sh**:
+  - Purpose: Bash script to run FLAIR quantify module, which performs isoform quantifications matrix from transcript models file.
+
+- **run.intronProspector.sh**:
+  - Purpose: From BAM/SAM generates a list of splicing junctions (SJs).
+
+- **sqanti3.withSRsupport.sh**:
+  - Purpose: Bash script to run SQANTI3 (example for short-read supported data).
+
+- **run.sqanti.filter.known.sh**:
+  - Purpose: Filter known genes using SQANTI categories.
+
+- **flairMODULE6.withSRsupport.sh**:
+  - Purpose: Bash script to run FLAIR diffSplice - module 6 (example for short-read supported data).
+
+- **flair.diff.iso.usage.KNOWN.filteredDATA.bash.sh**:
+  - Purpose: Bash script to run FLAIR different isoform usage tool (example for known genes filtered data).
+
+- **diffsplice.fishers.exact.sh**:
+  - Purpose: Compute Fisher test on splicing events.
+
+- **flair.align.singlebams.sh**:
+  - Purpose: From long-read fastq, generates single BAMs for each sample using FLAIR align module 1.
+
+- **run.ggsashimi.sh**:
+  - Purpose: Uses sushi function to generate ggsashimi plots.
