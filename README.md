@@ -49,8 +49,10 @@ nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/T
 
 ## Data Analysis
 
-- **Special Modules for Splicing Events and Isoform Usage:**
-  - FLAIR modules were utilized to analyze splicing events and isoform usage.
+### Splicing Events and Isoform Usage Analysis
+
+- **FLAIR Modules for Splicing Events and Isoform Usage:**
+  - FLAIR modules were employed to analyze splicing events and isoform usage.
 
     ```
     flairMODULE6.withSRsupport.sh
@@ -61,11 +63,18 @@ nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/T
     ```
 
 - **Fisher Test for Splicing Events:**
-  - To perform Fisher tests on splicing events:
+  - To conduct Fisher tests on splicing events:
 
     ```
     diffsplice.fishers.exact.sh
     ```
+
+### R Scripts for Analysis and Data Visualization
+
+In addition to the tools mentioned above, R scripts were utilized for further analysis and to generate visualizations of the data. These R scripts played a crucial role in providing insights and facilitating data interpretation.
+
+Please refer to the specific R script files for detailed information on the analyses conducted and the visualizations produced.
+
 
 ## Data Visualization
 
