@@ -8,7 +8,7 @@
 
 - **ONT Basecall and QC:**
   - Guppy v6 SUP was used to basecall the data with default parameters.
-  - Nanoplot and MultiQC were run using default parameters.
+  - Nanoplot v.1.40.0 and MultiQC v1.13 were run using default parameters.
 
 - **Long-Read Splicing Analysis:**
   - FLAIR v2.0 modules were used to process long-read sequencing data in two modes: LR-only and SR-supported.
@@ -28,7 +28,7 @@
     ```
 
 - **Data QC and Filtering:**
-  - SQANTI3 was used to QC the long-read data models obtained by FLAIR.
+  - SQANTI3 v5.1.2 was used to QC the long-read data models obtained by FLAIR.
   - Filter for Known (Gencode v43 annotated Genes) using SQANTI categories with the following script:
     ```
     run.sqanti.filter.known.sh
@@ -36,12 +36,12 @@
 
 ## Processing short-read data:
 
-Short-read sequencing data was processed using the GRAPE-NF pipeline.
+Short-read sequencing data was processed using the GRAPE-NF (commit  78fd890) pipeline.
 
 To process short-read sequencing data with GRAPE-NF, use the following command:
 
 ```
-nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/TFM/short_reads/metadata.tsv --genome /nfs/users/rg/projects/references/Genome/H.sapiens/GRCh38/GRCh38.p13.primary_assembly.genome.fa.gz --annotation /nfs/users/rg/projects/references/Annotation/H.sapiens/gencode43/gencode.v43.primary_assembly.annotation.gtf.gz --rg-platform ILLUMINA --rg-center-name CRG -resume -c /software/rg/grape/config/rg.singularity.dsl2.config > pipeline.log
+nextflow -bg run grape-nf -r 78fd890 --rsemSkipCi --index /nfs/users/rg/scarbonell/TFM/short_reads/metadata.tsv --genome /nfs/users/rg/projects/references/Genome/H.sapiens/GRCh38/GRCh38.p13.primary_assembly.genome.fa.gz --annotation /nfs/users/rg/projects/references/Annotation/H.sapiens/gencode43/gencode.v43.primary_assembly.annotation.gtf.gz --rg-platform ILLUMINA --rg-center-name CRG -resume -c /software/rg/grape/config/rg.singularity.dsl2.config > pipeline.log
 ```
 
 ## Data Analysis
@@ -68,7 +68,7 @@ nextflow -bg run grape-nf -r dev --rsemSkipCi --index /nfs/users/rg/scarbonell/T
 
 ### R Scripts for Analysis
 
-In addition to the tools mentioned above, R scripts were utilized for further analysis and to generate visualizations of the data. These R scripts played a crucial role in providing insights and facilitating data interpretation.
+In addition to the abovementioned tools, R scripts were utilized for further analysis and to generate data visualisations. These R scripts were crucial in providing insights and facilitating data interpretation.
 
 Please refer to the specific R script files for detailed information on the analyses conducted and the visualizations produced.
 
